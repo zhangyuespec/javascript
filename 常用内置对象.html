@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用内置对象</title>
+    <script type="text/javascript">
+        /*
+        * 1.document
+        *   document.getElemntsByTagName  通过标签名获取元素
+        *   document.getElementsById    通过id获取元素
+        *   document.referrer   获取上一个跳转页面的地址
+        *
+        * 2.location
+        *   window.location.href    获取或者重定向url地址
+        *   window.location.search  获取地址参数部分
+        *   window.location.hash    获取页面锚点或者叫hash值
+        *
+        * */
+        window.onload = function () {
+            var sUrl = document.referrer;
+            /*获取服务器地址,或者说上一个页面地址*/
+            var oBtn = document.getElementById("btn01");
+            oBtn.onclick = function () {
+                window.location.href = sUrl;
+                /*但是因为不是服务器地址所以存不下来，这边可以直接写百度网址的字符串*/
+            };
+
+            var oBody = window.getElementById('body01');
+            var sData = window.location.search;
+            /*http://localhost:63342/Javascirpt/%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1.html?_ijt=1
+            * 如上是访问页面的地址，在最后?问好后面的就是参数，在开放中可以根据不同的参数，使得页面表现形式不一样。
+            * 比如现在参数是1
+            * 我们得到body的属性，让他的背景颜色变成金色
+            * */
+            var aRr = sData.split("=");
+            var iNum = aRr[1];
+            if (iNum == 1) {
+                oBody.style.backgroundColor = "gold";
+            }
+            // if(sData!=null)
+            // {
+            //     alert(sData);
+            // }
+            alert(sData);
+            /*获取地址参数*/
+        }
+    </script>
+</head>
+<body id='body01'>
+<input type="button" name="" value="跳转" id="btn01">
+
+</body>
+</html>

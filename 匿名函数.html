@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匿名函数</title>
+    <script type="text/javascript">
+        var num = 22;
+
+        function f() {
+            alert("hello ");
+        }
+
+        (function () {
+            var num = 11;
+
+            function myalter() {
+                alert("hello world");
+            }
+
+            alert(num);
+            myalter()
+        })();
+        /*封闭函数的第二种写法,前面加一个感叹号或者加一个波浪线*/
+        !function(){
+            alert("ll");
+        }();
+
+        alert(num)
+
+    </script>
+</head>
+<body>
+<div>
+    55
+</div>
+</body>
+</html>
